@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -21,33 +20,8 @@ const HeroSection = () => {
           <img 
             src="/lovable-uploads/e7793224-a21c-4c3a-b1cc-45d91f5b33bf.png" 
             alt="Link Ventures" 
-            className="w-3/4 md:w-1/2 lg:w-2/5 mb-12 animate-fade-in"
+            className="w-3/4 md:w-1/2 lg:w-2/5 animate-fade-in"
           />
-          
-          <h2 className="text-2xl md:text-3xl lg:text-4xl text-white font-light mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Connecting Visionaries with Opportunity
-          </h2>
-          
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            We partner with exceptional founders building transformative companies 
-            that redefine industries and shape the future.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <a 
-              href="#portfolio" 
-              className="bg-linkred text-white px-8 py-3 rounded-md flex items-center justify-center hover:bg-red-700 transition-colors"
-            >
-              Our Portfolio
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-            <a 
-              href="#contact" 
-              className="bg-transparent text-white border border-white px-8 py-3 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
-            >
-              Get in Touch
-            </a>
-          </div>
         </div>
       </div>
       
