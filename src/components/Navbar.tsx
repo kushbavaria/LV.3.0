@@ -29,7 +29,7 @@ const Navbar = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled 
-          ? 'bg-white shadow-md py-2' 
+          ? 'bg-black/90 backdrop-blur-sm shadow-lg py-2' 
           : 'bg-transparent py-4'
       )}
     >
@@ -45,10 +45,10 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-gray-800 hover:text-linkred font-medium transition-colors">About</a>
-            <a href="#portfolio" className="text-gray-800 hover:text-linkred font-medium transition-colors">Portfolio</a>
-            <a href="#focus" className="text-gray-800 hover:text-linkred font-medium transition-colors">Investment Focus</a>
-            <a href="#team" className="text-gray-800 hover:text-linkred font-medium transition-colors">Team</a>
+            <a href="#about" className="text-white hover:text-linkred font-medium transition-colors">About</a>
+            <a href="#portfolio" className="text-white hover:text-linkred font-medium transition-colors">Portfolio</a>
+            <a href="#focus" className="text-white hover:text-linkred font-medium transition-colors">Investment Focus</a>
+            <a href="#team" className="text-white hover:text-linkred font-medium transition-colors">Team</a>
             <a href="#contact" className="bg-linkred text-white px-4 py-2 rounded hover:bg-red-700 transition-colors">
               Contact Us
             </a>
@@ -56,7 +56,7 @@ const Navbar = () => {
           
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-800 focus:outline-none"
+            className="md:hidden text-white focus:outline-none"
             onClick={toggleMobileMenu}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,32 +66,32 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg animate-fade-in">
+        <div className="md:hidden bg-black/95 shadow-lg animate-fade-in">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
             <a 
               href="#about" 
-              className="text-gray-800 hover:text-linkred font-medium py-2 transition-colors"
+              className="text-white hover:text-linkred font-medium py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </a>
             <a 
               href="#portfolio" 
-              className="text-gray-800 hover:text-linkred font-medium py-2 transition-colors"
+              className="text-white hover:text-linkred font-medium py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Portfolio
             </a>
             <a 
               href="#focus" 
-              className="text-gray-800 hover:text-linkred font-medium py-2 transition-colors"
+              className="text-white hover:text-linkred font-medium py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Investment Focus
             </a>
             <a 
               href="#team" 
-              className="text-gray-800 hover:text-linkred font-medium py-2 transition-colors"
+              className="text-white hover:text-linkred font-medium py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Team
