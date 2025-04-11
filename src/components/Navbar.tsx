@@ -50,14 +50,13 @@ const Navbar = () => {
       <nav
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
-          isScrolled ? 'bg-black/90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'
+          isScrolled ? 'bg-black/30 backdrop-blur-sm shadow-lg py-1' : 'bg-black/30 py-2'
         )}
       >
-        <div className="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
-          {/* Logo */}
+        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
           <a
             href="/"
-            className="text-3xl font-bold text-white flex items-center -ml-4 md:-ml-6"
+            className="text-3xl font-bold text-white flex items-center"
             ref={logoRef}
             data-tilt
             data-tilt-scale="1.05"
@@ -66,12 +65,11 @@ const Navbar = () => {
             <img
               src="/lovable-uploads/e7793224-a21c-4c3a-b1cc-45d91f5b33bf.png"
               alt="Link Ventures"
-              className="h-12 md:h-16"
+              className="h-12 md:h-16 w-auto"
               style={{ transform: 'translateZ(20px)' }}
             />
           </a>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
             className="p-2 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-linkred rounded-md"
@@ -99,7 +97,6 @@ const Navbar = () => {
           <nav className="flex flex-col items-center space-y-12">
             <a href="#about" className="text-6xl font-bold text-white hover:text-linkred transition-colors" onClick={closeMenu}>About</a>
             <a href="/portfolio" className="text-6xl font-bold text-white hover:text-linkred transition-colors" onClick={closeMenu}>Portfolio</a>
-            <a href="#focus" className="text-6xl font-bold text-white hover:text-linkred transition-colors" onClick={closeMenu}>Investment Focus</a>
             <a href="/team" className="text-6xl font-bold text-white hover:text-linkred transition-colors" onClick={closeMenu}>Team</a>
           </nav>
         </div>

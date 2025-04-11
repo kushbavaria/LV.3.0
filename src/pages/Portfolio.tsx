@@ -4,15 +4,20 @@ import Navbar from '@/components/Navbar'; // Assuming Navbar is needed on this p
 
 // Placeholder data for portfolio companies
 const portfolioItems = [
-  { id: 1, name: 'Innovatech', logoUrl: '/placeholder-logo.svg', description: 'AI-driven solutions' },
-  { id: 2, name: 'QuantumLeap', logoUrl: '/placeholder-logo.svg', description: 'Next-gen computing' },
-  { id: 3, name: 'BioSynth', logoUrl: '/placeholder-logo.svg', description: 'Biotech advancements' },
-  { id: 4, name: 'AeroDynamics', logoUrl: '/placeholder-logo.svg', description: 'Aerospace tech' },
-  { id: 5, name: 'CyberSecure', logoUrl: '/placeholder-logo.svg', description: 'Cybersecurity platform' },
-  { id: 6, name: 'FinFlow', logoUrl: '/placeholder-logo.svg', description: 'Fintech innovation' },
-  { id: 7, name: 'HealthHub', logoUrl: '/placeholder-logo.svg', description: 'Digital health solutions' },
-  { id: 8, name: 'RoboWorks', logoUrl: '/placeholder-logo.svg', description: 'Advanced robotics' },
-  // Add more placeholders as needed
+  { id: 1, name: 'Mercor', logoUrl: '/logos/mercor.png', url: 'https://www.mercor.com', className: '' },
+  { id: 2, name: 'Blitzy', logoUrl: '/logos/Blitzy.jpg', url: 'https://www.blitzy.com', className: 'brightness-0 invert' },
+  { id: 3, name: 'Liquid AI', logoUrl: '/logos/Liquid-AI.png', url: 'https://liquid.ai', className: 'brightness-0 invert' },
+  { id: 4, name: 'Themis AI', logoUrl: '/logos/themisAI.png', url: 'https://themis.ai', className: 'brightness-0 invert' },
+  { id: 5, name: 'Aaru', logoUrl: '', url: 'https://www.linkventures.com/portfolio/aaru', className: '' },
+  { id: 6, name: 'Anomaly', logoUrl: '', url: 'https://www.linkventures.com/portfolio/anomaly', className: '' },
+  { id: 7, name: 'AnyQuestion', logoUrl: '', url: 'https://www.linkventures.com/portfolio/anyquestion', className: '' },
+  { id: 8, name: 'Autotegrity', logoUrl: '', url: 'https://www.linkventures.com/portfolio/autotegrity', className: '' },
+  { id: 9, name: 'C10 Labs', logoUrl: '', url: 'https://www.linkventures.com/portfolio/c10-labs', className: '' },
+  { id: 10, name: 'Canela Media', logoUrl: '', url: 'https://www.linkventures.com/portfolio/canela-media', className: '' },
+  { id: 11, name: 'Caribou', logoUrl: '', url: 'https://www.linkventures.com/portfolio/caribou', className: '' },
+  { id: 12, name: 'Catalan.ai', logoUrl: '', url: 'https://www.linkventures.com/portfolio/catalan-ai', className: '' },
+  { id: 13, name: 'Charm.io', logoUrl: '', url: 'https://www.linkventures.com/portfolio/charm-io', className: '' },
+  // Add remaining companies...
 ];
 
 const Portfolio = () => {
@@ -22,16 +27,21 @@ const Portfolio = () => {
       <main className="pt-16 pb-16 px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-16"> 
           {portfolioItems.map((item) => (
-            <div
+            <a
               key={item.id}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex flex-col items-center justify-center aspect-square transition-all duration-300 cursor-pointer group"
             >
-              <div className="w-32 h-32 bg-gray-700 rounded-full mb-5 flex items-center justify-center group-hover:scale-110 transition-transform"> 
-                 {/* <img src={item.logoUrl} alt={`${item.name} logo`} className="max-w-full max-h-full"/> */}
-                 <span className="text-sm text-gray-400">Logo</span>
+              <div className="w-64 h-64 mb-2 flex items-center justify-center group-hover:scale-110 transition-transform bg-black p-4 rounded-lg">
+                <img 
+                  src={item.logoUrl} 
+                  alt="" 
+                  className={`w-full h-full object-contain ${item.className}`} 
+                />
               </div>
-              <h3 className="text-xl font-medium text-center">{item.name}</h3>
-            </div>
+            </a>
           ))}
         </div>
       </main>
