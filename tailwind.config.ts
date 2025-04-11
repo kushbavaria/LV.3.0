@@ -1,5 +1,5 @@
-
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme"; // Import default theme for fallbacks
 
 export default {
 	darkMode: ["class"],
@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: { // Add fontFamily extension
+                sans: ['Inter', ...fontFamily.sans], // Set Inter as default sans font, with fallbacks
+            },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
