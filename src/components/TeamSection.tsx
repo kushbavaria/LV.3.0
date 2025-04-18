@@ -5,56 +5,83 @@ import TeamCard from './TeamCard';
 const teamMembers = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    title: "Managing Partner",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=600&q=80",
-    bio: "Sarah has over 20 years of experience in venture capital and previously founded two successful startups in the enterprise software space.",
-    linkedin: "#",
+    name: "Dave Blundin",
+    title: "FOUNDER AND GENERAL PARTNER",
+    image: "/images/team/dave-blundin.jpg",
+    bio: "Dave has founded or co-founded five companies, including Vignette Corporation (VIGN), Vestmark, Cimpress NV (CMPR), and Link Ventures.",
+    linkedin: "https://www.linkedin.com/in/blundin/",
     twitter: "#"
   },
   {
     id: 2,
-    name: "Michael Chen",
-    title: "Partner",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=600&q=80",
-    bio: "Michael specializes in healthcare and biotech investments with a background as a physician and healthcare executive.",
-    linkedin: "#",
-    twitter: "#"
+    name: "Peter H. Diamandis, MD",
+    title: "FOUNDER AND PARTNER - LINK XPV FUND",
+    image: "/images/team/peter-diamandis.jpg",
+    bio: "Peter is the Founder & Executive Chairman of the XPRIZE Foundation and Executive Founder of Singularity University. He has founded or co-founded over 20 companies.",
+    linkedin: "https://www.linkedin.com/in/peterdiamandis/",
+    twitter: "https://twitter.com/PeterDiamandis"
   },
   {
     id: 3,
-    name: "David Rodriguez",
-    title: "Partner",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=600&q=80",
-    bio: "David leads our fintech practice and previously worked at leading financial institutions and tech companies.",
-    linkedin: "#",
+    name: "John Werner",
+    title: "MANAGING DIRECTOR",
+    image: "/images/team/john-werner.jpg",
+    bio: "John is a networker, inventor, and mobilizer who brings ideas, people, and resources together. Previously at MIT's Media Lab and the Autodesk Innovation Lab.",
+    linkedin: "https://www.linkedin.com/in/john-werner-1048a45/",
     twitter: "#"
   },
   {
     id: 4,
-    name: "Rebecca Kim",
-    title: "Principal",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=600&q=80",
-    bio: "Rebecca focuses on enterprise SaaS and cybersecurity investments, with technical expertise in AI and machine learning.",
+    name: "Lisa Dolan",
+    title: "MANAGING DIRECTOR",
+    image: "/images/team/lisa-dolan.jpg",
+    bio: "Lisa brings expertise in global business development and partnership creation. Former digital strategy executive from Universal Music and Condé Nast.",
     linkedin: "#",
     twitter: "#"
   },
   {
     id: 5,
-    name: "James Williams",
-    title: "Principal",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=600&q=80",
-    bio: "James specializes in cleantech investments and has a background in renewable energy and sustainability.",
-    linkedin: "#",
+    name: "Boaz Fachler",
+    title: "PRINCIPAL INVESTOR",
+    image: "/images/team/boaz-fachler.jpg",
+    bio: "Boaz focuses on early-stage startups at Link Ventures. Previously worked with healthcare and consumer startups as an early team member.",
+    linkedin: "https://www.linkedin.com/in/boazfachler/",
     twitter: "#"
   },
   {
     id: 6,
-    name: "Olivia Garcia",
-    title: "Principal",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=600&q=80",
-    bio: "Olivia leads our frontier tech investments, with expertise in emerging technologies and deep tech.",
+    name: "Kush Bavaria",
+    title: "INVESTOR",
+    image: "/images/team/kush-bavaria.jpg",
+    bio: "Kush leads investment and operational activities with portfolio companies. Previously at Tesla and worked with startups across hardware and software.",
+    linkedin: "https://www.linkedin.com/in/kushbavaria/",
+    twitter: "#"
+  },
+  {
+    id: 7,
+    name: "KJ Hardrict",
+    title: "TECHNICAL PRINCIPAL INVESTOR",
+    image: "/images/team/kj-hardrict.jpg", 
+    bio: "KJ brings technical expertise to evaluate early-stage startups. Previously worked on AI, machine learning, and core technology ventures.",
     linkedin: "#",
+    twitter: "#"
+  },
+  {
+    id: 8,
+    name: "Yianni Psaltis, Ph.D.",
+    title: "MANAGING DIRECTOR",
+    image: "/images/team/yianni-psaltis.jpg",
+    bio: "Yianni leads investment strategy and portfolio company operations at Link Ventures. Previously in business development and strategic partnerships.",
+    linkedin: "#",
+    twitter: "#"
+  },
+  {
+    id: 9,
+    name: "Erik Brynjolfsson, PhD",
+    title: "VENTURE ADVISOR",
+    image: "/images/team/erik-brynjolfsson.jpg",
+    bio: "Erik is a professor at Stanford University and Director of the Stanford Digital Economy Lab. He is a leading researcher on technology's impact on business.",
+    linkedin: "https://www.linkedin.com/in/erikbrynjolfsson/",
     twitter: "#"
   }
 ];
