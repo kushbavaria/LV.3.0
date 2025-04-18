@@ -1,153 +1,75 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 
+const VIDEO_SEQUENCE = [
+  { src: '/videos/LV4.mp4', duration: 15, start: 5 }, 
+  { src: '/videos/blitzy.mp4', duration: 15, start: 0 },
+  { src: '/videos/mercor.mp4', duration: 15, start: 0 },
+];
+
 export default function Index() {
-  const scrollContainer = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  const sections = [
-    {
-      video: '/videos/mercor.mp4',
-      title: 'Mercor',
-      subtitle: 'We get people jobs',
-      startTime: 30
-    },
-    {
-      video: '/videos/blitzy.mp4',
-      title: 'Blitzy',
-      subtitle: 'AI-Powered Autonomous Software Development Platform',
-      startTime: 0,
-      endTime: 20
-    },
-    {
-      video: '/videos/xoulAI.mp4',
-      title: 'Xoul.AI',
-      subtitle: 'The future of autonomous AI agents',
-      startTime: 0,
-      endTime: 30
-    },
-    {
-      video: '/videos/Mecado.mp4',
-      title: 'Mecado',
-      subtitle: 'Putting analysis on autopilot'
-    }
-  ];
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [currentVideo, setCurrentVideo] = useState(0);
 
   useEffect(() => {
-    const firstVideo = videoRefs.current[0];
-    if (firstVideo) {
-      firstVideo.currentTime = 30;
-      firstVideo.play();
-    }
+    let timeoutId: NodeJS.Timeout;
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = VIDEO_SEQUENCE[currentVideo].start || 0;
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {});
+        timeoutId = setTimeout(() => {
+          setCurrentVideo((prev) => (prev + 1) % VIDEO_SEQUENCE.length);
+        }, VIDEO_SEQUENCE[currentVideo].duration * 1000);
+      }
+    };
+    playVideo();
+    return () => clearTimeout(timeoutId);
+  }, [currentVideo]);
+
+  useEffect(() => {
+    const handler = () => {
+      if (videoRef.current && videoRef.current.paused) {
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {});
+      }
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
   }, []);
-
-  useEffect(() => {
-    const currentVideo = videoRefs.current[activeIndex];
-    if (currentVideo) {
-      const handleTimeUpdate = () => {
-        if (currentVideo.currentTime >= (sections[activeIndex]?.endTime || Infinity)) {
-          currentVideo.pause();
-          currentVideo.currentTime = sections[activeIndex]?.startTime || 0;
-        }
-      };
-      
-      currentVideo.addEventListener('timeupdate', handleTimeUpdate);
-      currentVideo.currentTime = sections[activeIndex]?.startTime || 0;
-      currentVideo.play();
-      
-      return () => {
-        currentVideo.removeEventListener('timeupdate', handleTimeUpdate);
-      };
-    }
-  }, [activeIndex]);
-
-  const handleScroll = () => {
-    if (scrollContainer.current) {
-      const scrollLeft = scrollContainer.current.scrollLeft;
-      const width = scrollContainer.current.offsetWidth;
-      const newIndex = Math.round(scrollLeft / width);
-      setActiveIndex(newIndex);
-    }
-  };
-
-  useEffect(() => {
-    const container = scrollContainer.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll, { passive: true });
-      return () => container.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
-
-  const scrollToSection = (index: number) => {
-    setActiveIndex(index);
-    scrollContainer.current?.scrollTo({
-      left: window.innerWidth * index,
-      behavior: 'smooth'
-    });
-  };
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-black text-white font-inter">
+    <div className="relative h-screen w-screen overflow-hidden bg-black text-white font-inter">
       <Navbar />
-      
-      {/* Horizontal Scroll Container */}
-      <div 
-        ref={scrollContainer}
-        className="flex h-full w-full overflow-x-auto snap-x snap-mandatory scroll-smooth"
-        style={{ scrollbarWidth: 'none' }}
+      <video
+        key={VIDEO_SEQUENCE[currentVideo].src}
+        ref={videoRef}
+        autoPlay
+        loop={false}
+        playsInline
+        muted
+        className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        {sections.map((section, index) => (
-          <section
-            key={index}
-            className="flex-shrink-0 w-screen h-full snap-start relative"
-          >
-            <video
-              ref={el => videoRefs.current[index] = el}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src={section.video} type="video/mp4" />
-            </video>
-            
-            {/* Bottom Left Text */}
-            <div className="absolute bottom-16 left-8 z-10 max-w-md">
-              {section.title === 'Blitzy' ? (
-                <a href="https://www.blitzy.com" target="_blank" rel="noopener noreferrer" className="hover:no-underline transition-transform hover:scale-105">
-                  <h1 className="text-2xl md:text-3xl font-bold mb-1">{section.title}</h1>
-                  <p className="text-lg md:text-xl opacity-90">{section.subtitle}</p>
-                </a>
-              ) : section.title === 'Xoul.AI' ? (
-                <a href="https://xoul.ai" target="_blank" rel="noopener noreferrer" className="hover:no-underline transition-transform hover:scale-105">
-                  <h1 className="text-2xl md:text-3xl font-bold mb-1">{section.title}</h1>
-                  <p className="text-lg md:text-xl opacity-90">{section.subtitle}</p>
-                </a>
-              ) : (
-                <a href="https://www.mercor.com" target="_blank" rel="noopener noreferrer" className="hover:no-underline transition-transform hover:scale-105">
-                  <h1 className="text-2xl md:text-3xl font-bold mb-1">{section.title}</h1>
-                  <p className="text-lg md:text-xl opacity-90">{section.subtitle}</p>
-                </a>
-              )}
-            </div>
-          </section>
-        ))}
-      </div>
-
-      {/* Bottom Right Dot Navigation */}
-      <div className="fixed bottom-10 right-8 z-10 flex flex-col space-y-2">
-        {sections.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollToSection(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${ 
-              activeIndex === index ? 'bg-white' : 'bg-white/40 hover:bg-white/70'
-            }`}
-            aria-label={`Go to section ${index + 1}`}
-          />
-        ))}
+        <source src={VIDEO_SEQUENCE[currentVideo].src} type="video/mp4" />
+      </video>
+      {/* Overlay for darkening the video */}
+      <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
+      {/* Hero Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 animate-fade-in-up">
+          Empowering Visionary Founders
+        </h1>
+        <p className="text-lg md:text-2xl max-w-2xl mx-auto mb-8 text-gray-200 animate-fade-in-up delay-100">
+          Link Ventures invests in bold entrepreneurs building the future of technology and society.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-200">
+          <a href="/portfolio" className="px-8 py-3 rounded-full bg-linkred text-white font-semibold text-lg shadow-lg hover:bg-red-700 transition-colors">
+            View Portfolio
+          </a>
+          <a href="#contact" className="px-8 py-3 rounded-full bg-white text-linkred font-semibold text-lg shadow-lg hover:bg-gray-200 transition-colors">
+            Pitch Your Startup
+          </a>
+        </div>
       </div>
     </div>
   );

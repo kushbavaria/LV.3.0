@@ -45,12 +45,13 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  // Make the navbar lighter: use bg-opacity-40 for a subtle/light overlay.
   return (
     <>
       <nav
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
-          isScrolled ? 'bg-black/30 backdrop-blur-sm shadow-lg py-1' : 'bg-black/30 py-2'
+          isScrolled ? 'bg-black bg-opacity-40 shadow-lg py-1' : 'bg-black bg-opacity-40 py-2'
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
@@ -82,7 +83,7 @@ const Navbar = () => {
 
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex flex-col items-center justify-center animate-fade-in"
+          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex flex-col items-center justify-center animate-fade-in"
           role="dialog"
           aria-modal="true"
         >

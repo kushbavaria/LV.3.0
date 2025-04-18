@@ -2,22 +2,43 @@
 import React from 'react';
 import Navbar from '@/components/Navbar'; // Assuming Navbar is needed on this page too
 
-// Placeholder data for portfolio companies
+// Portfolio companies with logos
 const portfolioItems = [
   { id: 1, name: 'Mercor', logoUrl: '/logos/mercor.png', url: 'https://www.mercor.com', className: '' },
-  { id: 2, name: 'Blitzy', logoUrl: '/logos/Blitzy.jpg', url: 'https://www.blitzy.com', className: 'brightness-0 invert' },
-  { id: 3, name: 'Liquid AI', logoUrl: '/logos/Liquid-AI.png', url: 'https://liquid.ai', className: 'brightness-0 invert' },
-  { id: 4, name: 'Themis AI', logoUrl: '/logos/themisAI.png', url: 'https://themis.ai', className: 'brightness-0 invert' },
-  { id: 5, name: 'Aaru', logoUrl: '', url: 'https://www.linkventures.com/portfolio/aaru', className: '' },
-  { id: 6, name: 'Anomaly', logoUrl: '', url: 'https://www.linkventures.com/portfolio/anomaly', className: '' },
-  { id: 7, name: 'AnyQuestion', logoUrl: '', url: 'https://www.linkventures.com/portfolio/anyquestion', className: '' },
-  { id: 8, name: 'Autotegrity', logoUrl: '', url: 'https://www.linkventures.com/portfolio/autotegrity', className: '' },
-  { id: 9, name: 'C10 Labs', logoUrl: '', url: 'https://www.linkventures.com/portfolio/c10-labs', className: '' },
-  { id: 10, name: 'Canela Media', logoUrl: '', url: 'https://www.linkventures.com/portfolio/canela-media', className: '' },
-  { id: 11, name: 'Caribou', logoUrl: '', url: 'https://www.linkventures.com/portfolio/caribou', className: '' },
-  { id: 12, name: 'Catalan.ai', logoUrl: '', url: 'https://www.linkventures.com/portfolio/catalan-ai', className: '' },
-  { id: 13, name: 'Charm.io', logoUrl: '', url: 'https://www.linkventures.com/portfolio/charm-io', className: '' },
-  // Add remaining companies...
+  { id: 2, name: 'Blitzy', logoUrl: '/logos/Blitzy.svg', url: 'https://www.blitzy.com', className: 'filter invert-250' },
+  { id: 3, name: 'Liquid AI', logoUrl: '/logos/Liquid-AI.png', url: 'https://liquid.ai', className: '' },
+  { id: 4, name: 'Themis AI', logoUrl: '/logos/ThemisAI.svg', url: 'https://themis.ai', className: 'filter invert' },
+  { id: 5, name: 'Aaru', logoUrl: '/logos/aaru.png', url: 'https://www.linkventures.com/portfolio/aaru', className: '' },
+  { id: 6, name: 'Anomaly', logoUrl: '/logos/Anomaly.png', url: 'https://www.linkventures.com/portfolio/anomaly', className: 'filter invert' },
+  { id: 7, name: 'AnyQuestion', logoUrl: '/logos/anyquestion.png', url: 'https://www.linkventures.com/portfolio/anyquestion', className: 'filter invert' },
+  { id: 8, name: 'Autotegrity', logoUrl: '/logos/autotegrity.png', url: 'https://www.linkventures.com/portfolio/autotegrity', className: '' },
+  { id: 9, name: 'C10 Labs', logoUrl: '/logos/c10labs.png', url: 'https://www.linkventures.com/portfolio/c10-labs', className: '' },
+  { id: 10, name: 'Canela Media', logoUrl: '/logos/canela.png', url: 'https://www.linkventures.com/portfolio/canela-media', className: 'filter invert' },
+  { id: 11, name: 'Caribou', logoUrl: '/logos/Caribou.png', url: 'https://www.linkventures.com/portfolio/caribou', className: '' },
+  { id: 12, name: 'Catalan.ai', logoUrl: '/logos/Catalan.svg', url: 'https://www.linkventures.com/portfolio/catalan-ai', className: '' },
+  { id: 13, name: 'Charm.io', logoUrl: '/logos/charmio.png', url: 'https://www.linkventures.com/portfolio/charm-io', className: '' },
+  { id: 14, name: 'Context', logoUrl: '/logos/Context.png', url: 'https://www.linkventures.com/portfolio/context', className: '' },
+  { id: 15, name: 'Creatively', logoUrl: '/logos/creatively.png', url: 'https://www.linkventures.com/portfolio/creatively', className: 'filter invert' },
+  { id: 16, name: 'Diddo', logoUrl: '/logos/diddo.png', url: 'https://www.linkventures.com/portfolio/diddo', className: '' },
+  { id: 17, name: 'Dono', logoUrl: '/logos/dono.png', url: 'https://www.linkventures.com/portfolio/dono', className: '' },
+  { id: 18, name: 'DYLE', logoUrl: '/logos/DYLE.png', url: 'https://www.linkventures.com/portfolio/dyle', className: '' },
+  { id: 19, name: 'Enlaye', logoUrl: '/logos/Enlaye.png', url: 'https://www.linkventures.com/portfolio/enlaye', className: '' },
+  { id: 20, name: 'Ever', logoUrl: '/logos/ever.png', url: 'https://www.linkventures.com/portfolio/ever', className: '' },
+  { id: 21, name: 'Focal', logoUrl: '/logos/Focal.png', url: 'https://www.linkventures.com/portfolio/focal', className: 'filter invert' },
+  { id: 22, name: 'Further', logoUrl: '/logos/Further.png', url: 'https://www.linkventures.com/portfolio/further', className: 'filter invert' },
+  { id: 23, name: 'Healthcare.com', logoUrl: '/logos/healthcarecom.png', url: 'https://www.linkventures.com/portfolio/healthcare-com', className: '' },
+  { id: 24, name: 'Jobcase', logoUrl: '/logos/jobcase.png', url: 'https://www.linkventures.com/portfolio/jobcase', className: '' },
+  { id: 25, name: 'Lambda', logoUrl: '/logos/Lambda.png', url: 'https://www.linkventures.com/portfolio/lambda', className: '' },
+  { id: 26, name: 'LeadKarma', logoUrl: '/logos/LeadKarma.png', url: 'https://www.linkventures.com/portfolio/leadkarma', className: 'filter invert' },
+  { id: 28, name: 'Meticulate', logoUrl: '/logos/meticulate.png', url: 'https://www.linkventures.com/portfolio/meticulate', className: '' },
+  { id: 29, name: 'MobileMonkey', logoUrl: '/logos/mobilemonkey.png', url: 'https://www.linkventures.com/portfolio/mobilemonkey', className: '' },
+  { id: 30, name: 'NSKnox', logoUrl: '/logos/nsknox.png', url: 'https://www.linkventures.com/portfolio/nsknox', className: 'filter invert' },
+  { id: 31, name: 'OwnUp', logoUrl: '/logos/Ownup.png', url: 'https://www.linkventures.com/portfolio/ownup', className: 'filter invert' },
+  { id: 32, name: 'Parita', logoUrl: '/logos/parita.png', url: 'https://www.linkventures.com/portfolio/parita', className: 'filter invert' },
+  { id: 33, name: 'PayZen', logoUrl: '/logos/PayZen.png', url: 'https://www.linkventures.com/portfolio/payzen', className: 'filter invert' },
+  { id: 34, name: 'SmarterTravel', logoUrl: '/logos/SmarterTravel.png', url: 'https://www.linkventures.com/portfolio/smartertravel', className: '' },
+  { id: 35, name: 'Vestmark', logoUrl: '/logos/vestmark.png', url: 'https://www.linkventures.com/portfolio/vestmark', className: '' },
+  { id: 36, name: 'WaypointConverts', logoUrl: '/logos/WaypointConverts.png', url: 'https://www.linkventures.com/portfolio/waypointconverts', className: '' },
 ];
 
 const Portfolio = () => {
